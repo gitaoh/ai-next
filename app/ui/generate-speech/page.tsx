@@ -36,9 +36,7 @@ export default function GenerateSpeechPage() {
         body: JSON.stringify({ text }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to generate audio");
-      }
+      if (!response.ok) throw new Error("Failed to generate audio");
 
       const blob = await response.blob();
       audioUrlRef.current = URL.createObjectURL(blob);
